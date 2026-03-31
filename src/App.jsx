@@ -309,16 +309,52 @@ function App() {
         </div>
       </section>
 
-      <section id="interests" style={{ padding: '4rem 1.5rem', background: 'white' }}>
-        <div style={{ maxWidth: '80rem', margin: '0 auto', textAlign: 'center' }}>
-          <h2 style={{ fontSize: '2rem', fontWeight: 'bold', marginBottom: '1rem', color: '#0f172a' }}>Interests</h2>
-          <ul style={{ listStyle: 'none', padding: 0, display: 'inline-flex', flexDirection: 'column', alignItems: 'flex-start', gap: '0.5rem', color: '#475569', fontSize: '1.1rem' }}>
-            <li>• Coding</li>
-            <li>• Reading novels</li>
-            <li>• Hiking</li>
-            <li>• Watching Anime</li>
-            <li>• Gyming</li>
-          </ul>
+      <section id="interests" style={{ padding: '6rem 1.5rem', background: 'linear-gradient(to bottom, #ffffff, #f0f9ff)' }}>
+        <div style={{ maxWidth: '80rem', margin: '0 auto' }}>
+          <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+            <h2 style={{ fontSize: '2.25rem', fontWeight: 'bold', marginBottom: '1rem', color: '#0f172a' }}>My Interests</h2>
+            <p style={{ fontSize: '1.1rem', color: '#475569', maxWidth: '40rem', margin: '0 auto' }}>Things I'm passionate about and enjoy exploring in my free time</p>
+          </div>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '2rem' }}>
+            {[
+              { icon: '💻', title: 'Coding', description: 'Building cool projects and solving problems' },
+              { icon: '📚', title: 'Reading Novels', description: 'Getting lost in compelling stories' },
+              { icon: '🥾', title: 'Hiking', description: 'Exploring nature and outdoor adventures' },
+              { icon: '🎌', title: 'Anime', description: 'Enjoying Japanese animation and storytelling' },
+              { icon: '💪', title: 'Gyming', description: 'Staying fit and healthy' }
+            ].map((interest, idx) => (
+              <div key={idx} style={{ 
+                background: 'white', 
+                borderRadius: '1rem', 
+                padding: '2rem',
+                textAlign: 'center',
+                boxShadow: '0 4px 6px rgba(0, 0, 0, 0.07)',
+                transition: 'all 0.3s ease',
+                border: '1px solid rgba(203, 213, 225, 0.5)',
+                cursor: 'pointer'
+              }} 
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-8px)';
+                e.currentTarget.style.boxShadow = '0 15px 30px rgba(37, 99, 235, 0.15)';
+                e.currentTarget.style.borderColor = '#3b82f6';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.07)';
+                e.currentTarget.style.borderColor = 'rgba(203, 213, 225, 0.5)';
+              }}>
+                <div style={{ fontSize: '3.5rem', marginBottom: '1rem', display: 'inline-block', padding: '1rem', background: 'linear-gradient(135deg, #dbeafe, #f3e8ff)', borderRadius: '1rem' }}>
+                  {interest.icon}
+                </div>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: '600', color: '#0f172a', marginBottom: '0.5rem' }}>
+                  {interest.title}
+                </h3>
+                <p style={{ fontSize: '0.95rem', color: '#64748b', lineHeight: '1.5' }}>
+                  {interest.description}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
